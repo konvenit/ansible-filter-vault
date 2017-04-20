@@ -22,10 +22,10 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 # section in config file
 FILTERS = 'filters'
 
-VAULT_FILTER_KEY = C.get_config(C.p, FILTERS, 'vault_filter_key', 'ANSIBLE_VAULT_FILTER_KEY', 'vault.key', ispath=True)
+VAULT_FILTER_KEY = C.get_config(C.p, FILTERS, 'vault_filter_key', 'ANSIBLE_VAULT_FILTER_KEY', 'vault.key', value_type='path')
 VAULT_FILTER_SALT = C.get_config(C.p, FILTERS, 'vault_filter_salt', 'ANSIBLE_VAULT_FILTER_SALT', None)
-VAULT_FILTER_ITERATIONS = C.get_config(C.p, FILTERS, 'vault_filter_iterations', 'ANSIBLE_VAULT_FILTER_ITERATIONS', 1000000, integer=True)
-VAULT_FILTER_GENERATE_KEY = C.get_config(C.p, FILTERS, 'vault_filter_generate_key', 'ANSIBLE_VAULT_GENERATE_KEY', False, boolean=True)
+VAULT_FILTER_ITERATIONS = C.get_config(C.p, FILTERS, 'vault_filter_iterations', 'ANSIBLE_VAULT_FILTER_ITERATIONS', 1000000, value_type='integer')
+VAULT_FILTER_GENERATE_KEY = C.get_config(C.p, FILTERS, 'vault_filter_generate_key', 'ANSIBLE_VAULT_GENERATE_KEY', False, value_type='boolean')
 
 vault_filter_key = os.path.abspath(VAULT_FILTER_KEY)
 verbose = True
